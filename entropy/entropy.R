@@ -1,6 +1,11 @@
 source(file = "../functions.R")
 
-data = read.csv(file = "biology.csv", sep = ";", header = TRUE)
+data = read.csv(file = "biology.csv", sep = ",", header = TRUE)
+
+data$entropy = gsub(',','',as.character(data$entropy))
+data$reputation = gsub(',','',as.character(data$reputation))
+data$accepted_answers = gsub(',','',as.character(data$accepted_answers))
+
 data$entropy = as.numeric(data$entropy)
 data$reputation = as.numeric(data$reputation)
 data$accepted_answers = as.numeric(data$accepted_answers)
@@ -16,6 +21,11 @@ correlation(ordinary$entropy, ordinary$accepted_answers, "Ordinary Correl Biolog
 findDiff(data, entropy ~ class2, "entropy", "class2", "report/entropy_bio.csv") 
 
 data = read.csv(file = "chemistry.csv", sep = ",", header = TRUE)
+
+data$entropy = gsub(',','',as.character(data$entropy))
+data$reputation = gsub(',','',as.character(data$reputation))
+data$accepted_answers = gsub(',','',as.character(data$accepted_answers))
+
 data$entropy = as.numeric(data$entropy)
 data$reputation = as.numeric(data$reputation)
 data$accepted_answers = as.numeric(data$accepted_answers)

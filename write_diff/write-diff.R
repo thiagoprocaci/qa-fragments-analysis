@@ -1,6 +1,13 @@
 source(file = "../functions.R")
 
 data = read.csv(file = "biology.csv", sep = ",", header = TRUE)
+data$ari = gsub(',','',as.character(data$ari))
+data$words = gsub(',','',as.character(data$words))
+data$complexwords = gsub(',','',as.character(data$complexwords))
+data$sentences = gsub(',','', as.character(data$sentences))
+data$syllables = gsub(',','', as.character(data$syllables))
+data$characters = gsub(',','', as.character(data$characters))
+
 data$ari = as.numeric(data$ari)
 data$words = as.numeric(data$words)
 data$complexwords = as.numeric(data$complexwords)
@@ -30,6 +37,20 @@ findDiff(data, characters ~ class2, "characters", "class2", "report/biology/gene
 
 
 data = read.csv(file = "chemistry.csv", sep = ",", header = TRUE)
+data$ari = gsub(',','',as.character(data$ari))
+data$words = gsub(',','',as.character(data$words))
+data$complexwords = gsub(',','',as.character(data$complexwords))
+data$sentences = gsub(',','', as.character(data$sentences))
+data$syllables = gsub(',','', as.character(data$syllables))
+data$characters = gsub(',','', as.character(data$characters))
+
+data$ari = as.numeric(data$ari)
+data$words = as.numeric(data$words)
+data$complexwords = as.numeric(data$complexwords)
+data$sentences = as.numeric(data$sentences)
+data$syllables = as.numeric(data$syllables)
+data$characters = as.numeric(data$characters)
+
 data$ari = as.numeric(data$ari)
 data$words = as.numeric(data$words)
 data$complexwords = as.numeric(data$complexwords)

@@ -1,6 +1,12 @@
 source(file = "../functions.R")
 
 data = read.csv(file = "biology.csv", sep = ",", header = TRUE)
+
+data$answers = gsub(',','',as.character(data$answers))
+data$questions = gsub(',','', as.character(data$questions))
+data$comments = gsub(',','', as.character(data$comments))
+data$reviews = gsub(',','', as.character(data$reviews))
+
 data$answers = as.numeric(data$answers)
 data$questions = as.numeric(data$questions)
 data$comments = as.numeric(data$comments)
@@ -25,6 +31,12 @@ findDiff(data, accepted_answers ~ class2, "accepted_answers", "class2", "report/
 
 
 data = read.csv(file = "chemistry.csv", sep = ",", header = TRUE)
+
+data$answers = gsub(',','',as.character(data$answers))
+data$questions = gsub(',','', as.character(data$questions))
+data$comments = gsub(',','', as.character(data$comments))
+data$reviews = gsub(',','', as.character(data$reviews))
+
 data$answers = as.numeric(data$answers)
 data$questions = as.numeric(data$questions)
 data$comments = as.numeric(data$comments)

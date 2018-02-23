@@ -1,6 +1,7 @@
 source(file = "../functions.R")
 
 data = read.csv(file = "biology.csv", sep = ",", header = TRUE)
+data$number_answers_after_best = gsub(',','',as.character(data$number_answers_after_best))
 data$number_answers_after_best = as.numeric(data$number_answers_after_best)
 
 
@@ -13,6 +14,7 @@ findDiff(data, number_answers_after_best ~ class2, "number_answers_after_best", 
 
 
 data = read.csv(file = "chemistry.csv", sep = ",", header = TRUE)
+data$number_answers_after_best = gsub(',','',as.character(data$number_answers_after_best))
 data$number_answers_after_best = as.numeric(data$number_answers_after_best)
 
 

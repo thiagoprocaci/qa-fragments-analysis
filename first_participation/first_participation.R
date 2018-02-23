@@ -1,10 +1,14 @@
 source(file = "../functions.R")
 
 data = read.csv(file = "first_biology.csv", sep = ",", header = TRUE)
+
+data$diff_min = gsub(',','',as.character(data$diff_min))
+data$diff_min = gsub(',','',as.character(data$diff_min))
 data$diff_min = as.numeric(data$diff_min)
 
 
 data2 = read.csv(file = "first_chemistry.csv", sep = ",", header = TRUE)
+data2$diff_min = gsub(',','',as.character(data2$diff_min))
 data2$diff_min = as.numeric(data2$diff_min)
 
 

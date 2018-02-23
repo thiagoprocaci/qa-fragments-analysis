@@ -1,6 +1,7 @@
 source(file = "../functions.R")
 
 data = read.csv(file = "biology.csv", sep = ",", header = TRUE)
+data$reciprocity_count = gsub(',','',as.character(data$reciprocity_count))
 data$reciprocity_count = as.numeric(data$reciprocity_count)
 
 
@@ -12,6 +13,7 @@ findDiff(data, reciprocity_count ~ class2, "reciprocity_count", "class2", "repor
 
 
 data = read.csv(file = "chemistry.csv", sep = ",", header = TRUE)
+data$reciprocity_count = gsub(',','',as.character(data$reciprocity_count))
 data$reciprocity_count = as.numeric(data$reciprocity_count)
 
 findDiff(data, reciprocity_count ~ class, "reciprocity_count", "class", "report/chemistry/specific/chemistry_reciprocity_count_result.csv") 

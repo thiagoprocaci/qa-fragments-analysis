@@ -1,6 +1,7 @@
 source(file = "../functions.R")
 
 data = read.csv(file = "biology.csv", sep = ",", header = TRUE)
+data$count = gsub(',','',as.character(data$count))
 data$count = as.numeric(data$count)
 
 
@@ -9,6 +10,7 @@ findDiff(data, count ~ class2, "count", "class2", "report/biology/general/biolog
 
 
 data = read.csv(file = "chemistry.csv", sep = ",", header = TRUE)
+data$count = gsub(',','',as.character(data$count))
 data$count = as.numeric(data$count)
 
 

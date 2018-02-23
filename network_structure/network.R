@@ -1,6 +1,16 @@
 source(file = "../functions.R")
 
 data = read.csv(file = "biology.csv", sep = ",", header = TRUE, dec = ".")
+
+data$betweenness = gsub(',','',as.character(data$betweenness))
+data$closeness = gsub(',','',as.character(data$closeness))
+data$clustering_coefficient = gsub(',','',as.character(data$clustering_coefficient))
+data$degree = gsub(',','',as.character(data$degree))
+data$eccentricity = gsub(',','',as.character(data$eccentricity))
+data$indegree = gsub(',','',as.character(data$indegree))
+data$outdegree = gsub(',','',as.character(data$outdegree))
+data$page_rank = gsub(',','',as.character(data$page_rank))
+
 data$betweenness = as.numeric(data$betweenness)
 data$closeness = as.numeric(data$closeness)
 data$clustering_coefficient = as.numeric(data$clustering_coefficient)
@@ -37,6 +47,16 @@ findDiff(data, page_rank ~ class2, "page_rank", "class2", "report/biology/genera
 
 
 data = read.csv(file = "chemistry.csv", sep = ",", header = TRUE, dec = ".")
+
+data$betweenness = gsub(',','',as.character(data$betweenness))
+data$closeness = gsub(',','',as.character(data$closeness))
+data$clustering_coefficient = gsub(',','',as.character(data$clustering_coefficient))
+data$degree = gsub(',','',as.character(data$degree))
+data$eccentricity = gsub(',','',as.character(data$eccentricity))
+data$indegree = gsub(',','',as.character(data$indegree))
+data$outdegree = gsub(',','',as.character(data$outdegree))
+data$page_rank = gsub(',','',as.character(data$page_rank))
+
 data$betweenness = as.numeric(data$betweenness)
 data$closeness = as.numeric(data$closeness)
 data$clustering_coefficient = as.numeric(data$clustering_coefficient)
