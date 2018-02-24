@@ -5,7 +5,7 @@ library(pROC)
 
 fileToSave = "chemistry-auc"
 
-data = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ".")
 data$entropy = as.numeric(data$entropy)
 data$layer_1 = as.numeric(data$layer_1)
 data$layer_2 = as.numeric(data$layer_2)

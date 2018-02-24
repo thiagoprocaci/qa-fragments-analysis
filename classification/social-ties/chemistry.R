@@ -5,7 +5,14 @@ library(pROC)
 
 fileToSave = "chemistry-auc"
 
-data = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("chemistry.csv", header = TRUE, sep = ",")
+
+data$betweenness = gsub(',','',as.character(data$betweenness))
+data$closeness = gsub(',','',as.character(data$closeness))
+data$clustering_coefficient = gsub(',','',as.character(data$clustering_coefficient))
+data$indegree = gsub(',','',as.character(data$indegree))
+data$outdegree = gsub(',','',as.character(data$outdegree))
+
 data$betweenness = as.numeric(data$betweenness)
 data$closeness = as.numeric(data$closeness)
 data$clustering_coefficient = as.numeric(data$clustering_coefficient)

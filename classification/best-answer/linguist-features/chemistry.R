@@ -5,7 +5,16 @@ library(pROC)
 
 fileToSave = "chemistry-auc"
 
-data = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("chemistry.csv", header = TRUE, sep = ",")
+
+data$ari = gsub(',','',as.character(data$ari))
+data$words = gsub(',','',as.character(data$words))
+data$complexwords = gsub(',','',as.character(data$complexwords))
+data$sentences = gsub(',','', as.character(data$sentences))
+data$syllables = gsub(',','', as.character(data$syllables))
+data$characters = gsub(',','', as.character(data$characters))
+
+
 data$ari = as.numeric(data$ari)
 data$characters = as.numeric(data$characters)
 data$complexwords = as.numeric(data$complexwords)

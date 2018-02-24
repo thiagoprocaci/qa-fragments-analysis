@@ -5,7 +5,13 @@ library(pROC)
 
 fileToSave = "chemistry-auc"
 
-data = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("chemistry.csv", header = TRUE, sep = ",")
+
+data$answers = gsub(',','',as.character(data$answers))
+data$questions = gsub(',','', as.character(data$questions))
+data$comments = gsub(',','', as.character(data$comments))
+data$reviews = gsub(',','', as.character(data$reviews))
+
 data$questions = as.numeric(data$questions)
 data$comments = as.numeric(data$comments)
 data$answers = as.numeric(data$answers)

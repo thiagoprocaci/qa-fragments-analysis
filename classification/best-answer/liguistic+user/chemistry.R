@@ -5,7 +5,20 @@ library(pROC)
 
 fileToSave = "chemistry-auc"
 
-data = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("chemistry.csv", header = TRUE, sep = ",")
+
+data$answers = gsub(',','',as.character(data$answers))
+data$questions = gsub(',','', as.character(data$questions))
+data$comments = gsub(',','', as.character(data$comments))
+data$reviews = gsub(',','', as.character(data$reviews))
+data$ari = gsub(',','',as.character(data$ari))
+data$words = gsub(',','',as.character(data$words))
+data$complexwords = gsub(',','',as.character(data$complexwords))
+data$sentences = gsub(',','', as.character(data$sentences))
+data$syllables = gsub(',','', as.character(data$syllables))
+data$characters = gsub(',','', as.character(data$characters))
+
+
 data$ari = as.numeric(data$ari)
 data$characters = as.numeric(data$characters)
 data$complexwords = as.numeric(data$complexwords)
@@ -17,7 +30,7 @@ data$answers = as.numeric(data$answers)
 data$comments = as.numeric(data$comments)
 data$reviews = as.numeric(data$reviews)
 data$reviews = as.numeric(data$reviews)
-data$accepted_answers = as.numeric(data$accepted_answers)
+#data$accepted_answers = as.numeric(data$accepted_answers)
 
 
 
@@ -43,7 +56,7 @@ if(runModel) {
   
   
   modelFit <- train(class ~ ari + characters + complexwords + syllables + sentences + words +
-                      questions + answers + comments + reviews + accepted_answers
+                      questions + answers + comments + reviews #+ accepted_answers
                       
                       , data = dataTrain, 
                     method = "gbm",  
