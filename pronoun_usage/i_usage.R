@@ -15,7 +15,7 @@ findDiff(data, count_you_usage ~ class, "count_you_usage", "class", "report/biol
 findDiff(data, count_you_usage ~ class2, "count_you_usage", "class2", "report/biology/general/biology_count_you_usage_general_result.csv") 
 
 data = read.csv(file = "biology_we.csv", sep = ",", header = TRUE)
-data$count_we_usage = gsub(',','',as.character(ata$count_we_usage))
+data$count_we_usage = gsub(',','',as.character(data$count_we_usage))
 data$count_we_usage = as.numeric(data$count_we_usage)
 findDiff(data, count_we_usage ~ class, "count_we_usage", "class", "report/biology/specific/biology_count_we_usage_result.csv") 
 findDiff(data, count_we_usage ~ class2, "count_we_usage", "class2", "report/biology/general/biology_count_we_usage_general_result.csv") 
