@@ -5,15 +5,21 @@ library(pROC)
 
 fileToSave = "bio2chem-auc"
 
-data = read.csv("biology.csv", header = TRUE, sep = ",", dec = ",")
-data$modularity_class = as.numeric(data$modularity_class)
-data$citations = as.numeric(data$citations)
-data$avg_part = as.numeric(data$avg_part)
+data = read.csv("biology.csv", header = TRUE, sep = ",")
 
-data2 = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
-data2$modularity_class = as.numeric(data2$modularity_class)
-data2$citations = as.numeric(data2$citations)
-data2$avg_part = as.numeric(data2$avg_part)
+data$modularity_class = gsub(',','',as.character(data$modularity_class))
+data$citations = gsub(',','',as.character(data$citations))
+data$avg_part = gsub(',','',as.character(data$avg_part))
+
+data$modularity_class = ifelse(is.na(data$modularity_class), -1, as.numeric(data$modularity_class)) 
+data$citations = ifelse(is.na(data$citations), 0, as.numeric(data$citations)) 
+data$avg_part =  ifelse(is.na(data$avg_part), 0, as.numeric(data$avg_part)) 
+
+data2 = read.csv("chemistry.csv", header = TRUE, sep = ",")
+
+data2$modularity_class = ifelse(is.na(data2$modularity_class), -1, as.numeric(data2$modularity_class)) 
+data2$citations = ifelse(is.na(data2$citations), 0, as.numeric(data2$citations)) 
+data2$avg_part =  ifelse(is.na(data2$avg_part), 0, as.numeric(data2$avg_part)) 
 
 
 

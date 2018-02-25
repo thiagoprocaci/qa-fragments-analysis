@@ -5,14 +5,14 @@ library(pROC)
 
 fileToSave = "bio2chem-auc"
 
-data = read.csv("biology.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("biology.csv", header = TRUE, sep = ",", dec = ".")
 data$entropy = as.numeric(data$entropy)
 data$layer_1 = as.numeric(data$layer_1)
 data$layer_2 = as.numeric(data$layer_2)
 data$layer_3 = as.numeric(data$layer_3)
 data$layer_4 = as.numeric(data$layer_4)
 
-data2 = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data2 = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ".")
 data2$entropy = as.numeric(data2$entropy)
 data2$layer_1 = as.numeric(data2$layer_1)
 data2$layer_2 = as.numeric(data2$layer_2)

@@ -5,7 +5,7 @@ library(pROC)
 
 fileToSave = "chem2Bio-auc"
 
-data = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("chemistry.csv", header = TRUE, sep = ",")
 data$ari = as.numeric(data$ari)
 data$characters = as.numeric(data$characters)
 data$complexwords = as.numeric(data$complexwords)

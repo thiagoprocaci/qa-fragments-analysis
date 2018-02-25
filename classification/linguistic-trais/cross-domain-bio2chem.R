@@ -5,7 +5,18 @@ library(pROC)
 
 fileToSave = "bio2chem-auc"
 
-data = read.csv("biology.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("biology.csv", header = TRUE, sep = ",")
+
+data$ari = gsub(',','',as.character(data$ari))
+data$words = gsub(',','',as.character(data$words))
+data$complexwords = gsub(',','',as.character(data$complexwords))
+data$sentences = gsub(',','', as.character(data$sentences))
+data$syllables = gsub(',','', as.character(data$syllables))
+data$characters = gsub(',','', as.character(data$characters))
+data$count_i_usage = as.numeric(data$count_i_usage)
+data$count_you_usage = as.numeric(data$count_you_usage)
+data$count_she_he_usage = as.numeric(data$count_she_he_usage)
+
 data$ari = as.numeric(data$ari)
 data$characters = as.numeric(data$characters)
 data$complexwords = as.numeric(data$complexwords)
@@ -16,7 +27,18 @@ data$count_i_usage = as.numeric(data$count_i_usage)
 data$count_you_usage = as.numeric(data$count_you_usage)
 data$count_she_he_usage = as.numeric(data$count_she_he_usage)
 
-data2 = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data2 = read.csv("chemistry.csv", header = TRUE, sep = ",")
+
+data2$ari = gsub(',','',as.character(data2$ari))
+data2$words = gsub(',','',as.character(data2$words))
+data2$complexwords = gsub(',','',as.character(data2$complexwords))
+data2$sentences = gsub(',','', as.character(data2$sentences))
+data2$syllables = gsub(',','', as.character(data2$syllables))
+data2$characters = gsub(',','', as.character(data2$characters))
+data2$count_i_usage = as.numeric(data2$count_i_usage)
+data2$count_you_usage = as.numeric(data2$count_you_usage)
+data2$count_she_he_usage = as.numeric(data2$count_she_he_usage)
+
 data2$ari = as.numeric(data2$ari)
 data2$characters = as.numeric(data2$characters)
 data2$complexwords = as.numeric(data2$complexwords)

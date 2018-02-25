@@ -5,14 +5,28 @@ library(pROC)
 
 fileToSave = "bio2chem-auc"
 
-data = read.csv("biology.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("biology.csv", header = TRUE, sep = ",")
+
+data$betweenness = gsub(',','',as.character(data$betweenness))
+data$closeness = gsub(',','',as.character(data$closeness))
+data$clustering_coefficient = gsub(',','',as.character(data$clustering_coefficient))
+data$indegree = gsub(',','',as.character(data$indegree))
+data$outdegree = gsub(',','',as.character(data$outdegree))
+
 data$betweenness = as.numeric(data$betweenness)
 data$closeness = as.numeric(data$closeness)
 data$clustering_coefficient = as.numeric(data$clustering_coefficient)
 data$indegree = as.numeric(data$indegree)
 data$outdegree = as.numeric(data$outdegree)
 
-data2 = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data2 = read.csv("chemistry.csv", header = TRUE, sep = ",")
+
+data2$betweenness = gsub(',','',as.character(data2$betweenness))
+data2$closeness = gsub(',','',as.character(data2$closeness))
+data2$clustering_coefficient = gsub(',','',as.character(data2$clustering_coefficient))
+data2$indegree = gsub(',','',as.character(data2$indegree))
+data2$outdegree = gsub(',','',as.character(data2$outdegree))
+
 data2$betweenness = as.numeric(data2$betweenness)
 data2$closeness = as.numeric(data2$closeness)
 data2$clustering_coefficient = as.numeric(data2$clustering_coefficient)

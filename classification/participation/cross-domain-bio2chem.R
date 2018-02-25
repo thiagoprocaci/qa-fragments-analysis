@@ -5,13 +5,25 @@ library(pROC)
 
 fileToSave = "bio2chem-auc"
 
-data = read.csv("biology.csv", header = TRUE, sep = ",", dec = ",")
+data = read.csv("biology.csv", header = TRUE, sep = ",")
+
+data$answers = gsub(',','',as.character(data$answers))
+data$questions = gsub(',','', as.character(data$questions))
+data$comments = gsub(',','', as.character(data$comments))
+data$reviews = gsub(',','', as.character(data$reviews))
+
 data$questions = as.numeric(data$questions)
 data$comments = as.numeric(data$comments)
 data$answers = as.numeric(data$answers)
 data$reviews = as.numeric(data$reviews)
 
-data2 = read.csv("chemistry.csv", header = TRUE, sep = ",", dec = ",")
+data2 = read.csv("chemistry.csv", header = TRUE, sep = ",")
+
+data2$answers = gsub(',','',as.character(data2$answers))
+data2$questions = gsub(',','', as.character(data2$questions))
+data2$comments = gsub(',','', as.character(data2$comments))
+data2$reviews = gsub(',','', as.character(data2$reviews))
+
 data2$questions = as.numeric(data2$questions)
 data2$comments = as.numeric(data2$comments)
 data2$answers = as.numeric(data2$answers)
